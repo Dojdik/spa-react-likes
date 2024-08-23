@@ -17,7 +17,7 @@ export function PostPage() {
     if (postsMapping.length == 0) {
       return (
         <p>
-          No post found <Link to="/">Go to home</Link>
+          No post found <Link to={import.meta.env.BASE_URL}>Go to home</Link>
         </p>
       ) 
     }

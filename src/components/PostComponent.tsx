@@ -35,13 +35,13 @@ export function PostComponent(props: PostComponentProps) {
         <div className='card'>
             <h2>{title}</h2>
             <p className='card__content'>{text}</p>
-            {location.pathname == "/" ? <Link to={`/posts/${i}`}>Go to post</Link> : ""}
+            {location.pathname == import.meta.env.BASE_URL ? <Link to={`${import.meta.env.BASE_URL}posts/${i}`}>Go to post</Link> : ""}
             <div className='actions'>
-                
-                {location.pathname == "/" ? "" : 
+
+                {location.pathname == import.meta.env.BASE_URL ? "" : 
                 <button onClick={(e) => {
                     e.preventDefault()
-                    navigate("/")
+                    navigate(import.meta.env.BASE_URL)
                 }} className='actions__button' style={{
                     backgroundColor: "gray"
                 }}><BackIcon /></button>}

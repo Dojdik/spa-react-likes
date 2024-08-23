@@ -46,8 +46,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/spa-react-likes/" element={<AllPostsPage />}></Route>
-        <Route path="/spa-react-likes/posts/:postIndex" element={<PostPage />}></Route>
+        <Route path={import.meta.env.BASE_URL} element={<AllPostsPage />}></Route>
+        <Route path={`${import.meta.env.BASE_URL}posts/:postIndex`} element={<PostPage />}></Route>
       </Routes>
     </Router>
   )
