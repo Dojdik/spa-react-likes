@@ -37,12 +37,15 @@ export function PostComponent(props: PostComponentProps) {
             <p className='card__content'>{text}</p>
             {location.pathname == "/" ? <Link to={`/posts/${i}`}>Go to post</Link> : ""}
             <div className='actions'>
+                
+                {location.pathname == "/" ? "" : 
                 <button onClick={(e) => {
                     e.preventDefault()
                     navigate("/")
                 }} className='actions__button' style={{
                     backgroundColor: "gray"
-                }}><BackIcon /></button>
+                }}><BackIcon /></button>}
+
                     <button onClick={(e) => {
                     e.preventDefault()
                     likePost(i)
