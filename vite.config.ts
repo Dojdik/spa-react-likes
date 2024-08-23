@@ -4,6 +4,6 @@ import vitePluginSvgr from 'vite-plugin-svgr'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/',
+  base: '/spa-react-likes/',
   plugins: [react(), vitePluginSvgr()],
 })
