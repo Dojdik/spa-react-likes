@@ -10,8 +10,8 @@ export function PostPage() {
 
   const posts = useAppSelector((state) => state.posts.value);
 
-  const postsMapping = posts.filter((_x: PostState, i: number) => i == Number(postIndex)).map((x, _i) => {
-    return <PostComponent i={postIndex} title={x.title} text={x.text} liked={x.liked} />
+  const postsMapping = posts.filter((_x: PostState, i: number) => i == Number(postIndex)).map((x) => {
+    return <PostComponent i={Number(postIndex)} title={x.title} text={x.text} liked={x.liked} />
   })
 
     if (postsMapping.length == 0) {
