@@ -6,6 +6,7 @@ import BackIcon from '../icons/BackIcon.svg?react';
 
 import { removePost, toggleLike } from '../reducers/posts/postsReducer';
 import { useAppDispatch } from "../app/hooks";
+import { useRef } from "react";
 
 export type PostComponentProps = {
     i: number,
@@ -16,6 +17,7 @@ export type PostComponentProps = {
 
 export function PostComponent(props: PostComponentProps) {
 
+    const cardRef = useRef(null)
     const location = useLocation()
 
     const { i, title, text, liked } = props
@@ -32,7 +34,10 @@ export function PostComponent(props: PostComponentProps) {
     }
 
     return (
-        <div className='card'>
+        <div ref={cardRef} className='card' onClick={(e) => {
+            if (e.target == cardRef.current)
+                navigate(`${import.meta.env.BASE_URL}posts/${i}`)
+        }}>
             <h2>{title}</h2>
             <p className='card__content'>{text}</p>
             {location.pathname == import.meta.env.BASE_URL ? <Link to={`${import.meta.env.BASE_URL}posts/${i}`}>Go to post</Link> : ""}
